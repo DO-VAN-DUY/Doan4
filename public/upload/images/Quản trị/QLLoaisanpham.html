@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<title>Quản lý loại sản phẩm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../style/style.css">
+<link rel="stylesheet" href="../style/main_ index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+<script src="js/java_jqu.js"></script>
+<body>
+    <!-- Sidebar -->
+    <section class="header">
+        <a href="javascript:void(0);" class="icon" onclick="openBTN()">
+            <i class="fas fa-bars"></i>
+        </a>
+        <div class="box-login" id="box-t">
+            Xin chào, <span id="tenkhachhang">Admin</span><i class="fas fa-sort-down"></i>
+            <div class="box-login-bottom" id="box-b">
+                <button onclick="trangchu()"><i class="fas fas fas fa-reply"></i>Vào trang web</button>
+                <button onclick="TTTaiKhoan()"><i class="fas fa-user-alt"></i> Tài khoản</button>
+                <button onclick="LogOut();"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </div>
+        </div>
+    </section>
+   <section class="main">
+    <div class="row">
+        <div class="col-2 col-s-12 category">
+            <div class="bgbtn"></div>
+            <a href="../index.html"><i class="fa fa-reply" aria-hidden="true"></i>Trang quản trị</a>
+            <a href="../Quản trị/QLsanpham.html"><i class="fas fa-barcode"></i> Sản phẩm</a>
+            <a href="../Quản trị/QLLoaisanpham.html"><i class="fas fa-boxes"></i> Loại sản phẩm</a>
+            <a href="../Quản trị/QL nhacungcap.html"><i class="fas fa-truck"></i> Nhà cung cấp</a>
+            <a href="../Quản trị/QLNhanvien.html"><i class="fas fa-user"></i> Nhân viên</a>
+            <a href="../Quản trị/QLHoadonnhap.html"><i class="fas fa-file-import"></i> Hóa đơn nhập</a>
+            <a href="../Quản trị/QLHoadonban.html"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</a>
+        </div>
+        <div class="col-10 col-s-12 content">
+            <div class="col-12 col-s-12 content">
+                <div class="col-6 col-s-12">
+                    <form action="">
+                        <div class="wraps">Nhập thông tin loại sản phẩm</div>
+                    <div class="wrap-field">
+                        <label for="">Mã loại sản phẩm : </label>
+                        <div class="col-12 col-s-12">
+                            <input type="text" name="" placeholder="Nhập mã loại sản phẩm..." id="Maloai"required>
+                        </div>
+                    </div>
+                    <div class="wrap-field">
+                        <label for=""> Tên loại sản phẩm : </label>
+                       <div class="col-12 col-s-12">
+                        <input type="text" name="" placeholder="Nhập tên loại sản phẩm..." id="name"required>
+                       </div>
+                    </div>
+                    
+                    <div class="wrap">
+                        <input onclick="Addloaisp()" type="submit" value="Add">
+                        <input onclick="resetall()" type="submit" value="Reset">
+                        <input id="sua" type="submit"  value="Edit">
+                    </div>
+                    </form>
+               </div>
+           <div class=" col-6 col-s-12 float_right">
+               <div class="warps1">Danh sách loại sản phẩm</div>
+                   <div class="search">
+                        <input type="text" name="" id="myloai" placeholder="Search...">
+                    </div>
+        
+               <table cellspacing="0">
+                   <tr style="background-color: rgb(13, 167, 46);height: 50px;">
+                       <th>Mã loại sản phẩm</th>
+                       <th>Tên loại sản phẩm</th>
+                       <th>Tác vụ</th>
+                   </tr>
+                  <tbody id="myloaisanpham">
+                  </tbody>
+               </table>
+           </div>
+               
+            </div>
+        </div>
+    </div>
+   <script>
+        function Addloaisp()
+        {
+            var arr=document.getElementsByTagName('input');
+            var Maloai=arr[0].value;
+            var name=arr[1].value;   
+            if(Maloai==""||name=="")
+            {
+                        alert("Không được để ô rỗng");
+                        return;
+            }
+            if(Maloai.length>10||isNaN(Maloai))
+            {
+                        alert("Mã loại sản phẩm không hợp lệ.Mời nhập lại mã ! ");
+                        return;
+            }
+            if(name.length>30)
+            {
+                        alert("Tên loại không hợp lệ.Xin mời nhập lại !")
+            }   
+            var Listlsp = JSON.parse(localStorage.getItem('QLloaisp'));
+            if (Listlsp == null) Listlsp = [];
+            var QLloaisp = {
+                Maloai: Maloai,
+                name: name
+            };
+            Listlsp.push(QLloaisp)
+            localStorage.setItem('QLloaisp', JSON.stringify(Listlsp))
+            alert("Thêm loại sản phẩm thành công !")
+            location.reload();
+        }
+        var listloai = JSON.parse(localStorage.getItem('QLloaisp'));
+        function Loadloai()
+        {
+            var str = "";
+            for (x of listloai) {
+                str += `<tr>
+                        <td>`+ x.Maloai+ `</td>        
+                        <td>`+ x.name + `</td>
+                        <td ><i onclick="Edit(event)" class="fa fa-pencil-square-o" aria-hidden="true"></i> <i onclick="Xoa(`+ x.Maloai + `)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                `;
+            }
+            document.getElementById("myloaisanpham").innerHTML = str;
+        }
+        Loadloai();
+        function resetall() {
+            document.getElementsByTagName('form')[0].reset()
+        }
+        $(document).ready(function(){
+            $("#myloai").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myloaisanpham tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            });
+        });
+        function Xoa(Maloai) {
+            var index = listloai.findIndex(x => x.Maloai == Maloai);
+            if (index >= 0) {
+                listloai.splice(index, 1);
+            }
+            localStorage.setItem('QLloaisp', JSON.stringify(listloai));
+            Loadloai();  
+        }
+        function Edit(event) {
+            var parent = event.target.parentElement.parentElement.children[0]; 
+            var Listloai = JSON.parse(localStorage.getItem('QLloaisp'));
+            for(let i=0;i<Listloai.length;i++){
+                if(Listloai[i].Maloai==parent.innerHTML){
+                document.getElementById('Maloai').value=Listloai[i].Maloai;
+                document.getElementById('name').value=Listloai[i].name;
+                break;
+                }
+                
+            }
+            document.getElementById('sua').addEventListener('click',e=>{
+                for(let i=0;i<Listloai.length;i++){
+                if(Listloai[i].Maloai==parent.innerHTML){
+                    Listloai[i].Maloai = document.getElementById('Maloai').value;
+                    Listloai[i].name = document.getElementById('name').value;
+                    localStorage.setItem('QLloaisp',JSON.stringify(Listloai));
+                    break;
+                }
+                
+                
+            }
+            document.getElementById('Maloai').value='';
+            document.getElementById('name').value='';
+            Loadloai();
+            })
+        }
+        nameNV();
+   </script>
+    <!-- Page Content -->
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+.gt_header
+{
+  max-width: 1000px;
+  margin: 0px auto;
+}
+.gioithieu
+{
+          font-size: 20px;
+          top: 15px;
+
+}
+.gioithieu p
+{
+  margin-top: 20px;
+}
+h2
+{
+  margin-top: 20px;
+}
+#nd
+{
+          top:20px;
+}
+
+
+#DMuc
+{
+  top: 0px;
+  line-height: 50px;
+  background-color:darkgreen;
+  color: #fff;
+}
+#anhDM
+{
+  height: 105px;
+  overflow: hidden;
+}
+#anhDM img:hover
+{
+  transform: scale(1.1);
+   cursor: pointer; 
+}
+#anhDM img
+{
+  width: 90px;
+  height: 90px;
+  float: left;
+}
+#content2 span
+{
+  color: blue;
+}
+#content2 img
+{
+    border-radius: 10%;
+}
+#anhtt
+{
+  border: 1px solid rgb(61, 153, 19);
+  width: 200px;
+  border-radius: 10%;
+  margin-left: 25px;
+  text-align: center;
+  float: left;
+  margin-top: 7px;
+}
+

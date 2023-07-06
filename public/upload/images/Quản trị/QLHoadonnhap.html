@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<title>Quản lý hóa đơn nhập</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../style/style.css">
+<link rel="stylesheet" href="../style/main_ index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+<script src="js/java_jqu.js"></script>
+<body>
+    <!-- Sidebar -->
+    <section class="header">
+        <a href="javascript:void(0);" class="icon" onclick="openBTN()">
+            <i class="fas fa-bars"></i>
+        </a>
+        <div class="box-login" id="box-t">
+            Xin chào, <span id="tenkhachhang">Admin</span><i class="fas fa-sort-down"></i>
+            <div class="box-login-bottom" id="box-b">
+                <button onclick="trangchu()"><i class="fas fas fas fa-reply"></i>Vào trang web</button>
+                <button onclick="TTTaiKhoan()"><i class="fas fa-user-alt"></i> Tài khoản</button>
+                <button onclick="LogOut();"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="row">
+            <div class="col-2 col-s-12 category">
+                <div class="bgbtn"></div>
+                <a href="../index.html"><i class="fa fa-reply" aria-hidden="true"></i>Trang quản trị</a>
+                <a href="../Quản trị/QLsanpham.html"><i class="fas fa-barcode"></i> Sản phẩm</a>
+                <a href="../Quản trị/QLLoaisanpham.html"><i class="fas fa-boxes"></i> Loại sản phẩm</a>
+                <a href="../Quản trị/QL nhacungcap.html"><i class="fas fa-truck"></i> Nhà cung cấp</a>
+                <a href="../Quản trị/QLNhanvien.html"><i class="fas fa-user"></i> Nhân viên</a>
+                <a href="../Quản trị/QLHoadonnhap.html"><i class="fas fa-file-import"></i> Hóa đơn nhập</a>
+                <a href="../Quản trị/QLHoadonban.html"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</a>
+            </div>
+            <div class="col-10 col-s-12 content">
+                <div class="col-12 col-s-12 content">
+                    <div class="col-6 col-s-12">
+                    <form action="">
+                        <div class="wraps">Nhập thông tin hóa đơn nhập</div>
+                        <div class="wrap-field">
+                            <label for="">Mã hóa đơn : </label>
+                            <div class="col-12 col-s-12">
+                                <input type="text" name="" placeholder="Nhập mã hóa đơn nhập..." id="MaHDN"required>
+                            </div>
+                        </div>
+                        <div class="wrap-field">
+                            <label for=""> Tên nhân viên nhập : </label>
+                           <div class="col-12 col-s-12">
+                            <input type="text" name="" placeholder="Nhập tên nhân viên nhập..." id="Manvn"required>
+                           </div>
+                        </div>
+                        <div class="wrap-field">
+                            <label for="">Nhà cung cấp : </label>
+                           <div class=" col-12 col-s-12">
+                            <input type="text" name="" placeholder="Nhập tên nhà cung cấp..." id="ncc"required>
+                           </div>
+                        </div>
+                        <div class="wrap-field">
+                            <label for="">số lượng : </label>
+                           <div class="col-12 col-s-12">
+                            <input type="text" name="" placeholder="Nhập nhập số lượng..." id="slg"required>
+                           </div>
+                        </div>
+                        <div class="wrap-field">
+                                <label for="">Giá sản phẩm : </label>
+                               <div class="col-12 col-s-12">
+                                <input type="text" name="" placeholder="Nhập giá sản phẩm..." id="gia"required>
+                               </div>
+                            </div>
+                    <div class="wrap">
+                        <input onclick="Addhdn()" type="submit" value="Add">
+                        <input onclick="resetall()" type="submit" value="Reset">
+                        <input id="sua" type="submit" value="Edit">
+                    </div>
+                    </form>
+               </div>
+           <div class=" col-6 col-s-12 float_right">
+            <div class="warps1">Danh sách hóa đơn nhập</div>
+                   <div class="search">
+                        <input type="text" name="" id="myhdnhap" placeholder="Search...">
+                    </div>
+        
+               <table cellspacing="0">
+                   <tr style="background-color: rgb(13, 167, 46);height: 50px;">
+                            <th>Mã HDN</th>
+                            <th>Tên NV</th>
+                            <th>Nhà cung cấp</th>
+                            <th>Số lượng</th>
+                            <th>Giá sp</th>
+                            <th>Tổng</th>
+                            <th>Tác vụ</th>
+                   </tr>
+                  <tbody id="myhdn">
+                  </tbody>
+               </table>
+               <div style="line-height: 2em; background-color: rgb(27, 177, 27);margin-left: -16px;margin-top: 20px;">
+                <label>Tổng thành tiền hóa đơn: </label> 
+                 <span id="Thanhtien">0</span>
+            </div>
+    </div>
+   <script>
+        function Addhdn()
+        {
+            var arr=document.getElementsByTagName('input');
+            var MaHDN=arr[0].value;
+            var Manvn=arr[1].value;
+            var ncc=arr[2].value;
+            var slg=arr[3].value;
+            var gia=arr[4].value;
+            if(MaHDN==""||Manvn==""||ncc==""||slg==""||gia=="")
+            {
+                        alert("Không được để ô rỗng");
+                        return;
+            }
+            if(MaHDN.length>10||isNaN(MaHDN))
+            {
+                        alert("Mã hóa đơn nhập không hợp lệ.Mời nhập lại mã ! ");
+                        return;
+            }
+            if(Manvn.length>50)
+            {
+                        alert("Tên nhân viên nhập không hợp lệ.Mời nhập lại !");
+                        return;
+            }      
+             if(ncc.length>50) 
+            {
+                        alert("Tên nhà cung cấp không hợp lệ.Vui lòng nhập lại");
+                        return;
+            }
+            if(isNaN(slg))
+            {
+                        alert("Số lượng không hợp lệ.Vui lòng nhập lại")
+                        return;
+            }
+            if(isNaN(gia))
+            {
+                        alert("Giá sản phẩm không hợp lệ.Vui lòng nhập lại")
+                        return;
+            }
+            var Listhdn = JSON.parse(localStorage.getItem('QLhoadonnhaps'));
+            if (Listhdn == null) Listhdn = [];
+            var QLhoadonnhaps = {
+                MaHDN:MaHDN,
+                Manvn:Manvn,
+                ncc:ncc,
+                slg:slg,
+                gia:gia
+          
+            };
+            Listhdn.push(QLhoadonnhaps)
+            localStorage.setItem('QLhoadonnhaps', JSON.stringify(Listhdn))
+            alert("Thêm sản phẩm thành công !")
+            location.reload();
+        }
+        var listn = JSON.parse(localStorage.getItem('QLhoadonnhaps'));
+        function LoadHDN()
+        {
+            var str = "";
+            var t=0;
+            for (x of listn) {
+                t+=(x.slg * x.gia)
+                str += `<tr>
+                       <td>`+ x.MaHDN+ `</td>
+                        <td>`+ x.Manvn + `</td>
+                        <td>`+ x.ncc + `</td>
+                        <td>`+ x.slg + `</td>
+                        <td>`+ x.gia + `</td>
+                        <td>`+ (x.slg * x.gia) + `</td>
+                        <td><i onclick="Edit(event)" class="fa fa-pencil-square-o" aria-hidden="true"></i> <i onclick="Xoa(`+ x.MaHDN + `)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                `;
+            }
+            document.getElementById("myhdn").innerHTML = str;
+            $("#Thanhtien").text(t);
+        }
+        LoadHDN();
+        function resetall() {
+            document.getElementsByTagName('form')[0].reset()
+        }
+        $(document).ready(function(){
+            $("#myhdnhap").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myhdn tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            });
+        });
+        function Xoa(MaHDN) {
+            var index = listn.findIndex(x => x.MaHDN == MaHDN);
+            if (index >= 0) {
+                listn.splice(index, 1);
+            }
+            localStorage.setItem('QLhoadonnhaps', JSON.stringify(listn));
+            LoadHDN();  
+        }
+        function Edit(event) {
+            var parent = event.target.parentElement.parentElement.children[0]; 
+            console.log(parent.innerText);
+            var Listhdn = JSON.parse(localStorage.getItem('QLhoadonnhaps'));
+            for(let i=0;i<Listhdn.length;i++){
+                if(Listhdn[i].MaHDN==parent.innerText.trim()){
+             document.getElementById('MaHDN').value=Listhdn[i].MaHDN;
+            document.getElementById('Manvn').value=Listhdn[i].Manvn;
+            document.getElementById('ncc').value=Listhdn[i].ncc;
+            document.getElementById('slg').value=Listhdn[i].slg; 
+            document.getElementById('gia').value=Listhdn[i].gia;
+            break;
+                }
+            }
+            document.getElementById('sua').addEventListener('click',e=>{
+                for(let i=0;i<Listhdn.length;i++){
+                if(Listhdn[i].MaHDN==parent.innerText.trim()){
+                    Listhdn[i].MaHDN = document.getElementById('MaHDN').value;
+                    Listhdn[i].Manvb = document.getElementById('Manvn').value;
+                    Listhdn[i].ncc= document.getElementById('ncc').value;
+                    Listhdn[i].slg= document.getElementById('slg').value;
+                    Listhdn[i].gia= document.getElementById('gia').value;
+                    localStorage.setItem('QLhoadonnhaps',JSON.stringify(Listhdn));
+                     break;
+                }
+                
+            }
+            document.getElementById('MaHDN').value='';
+            document.getElementById('Manvn').value='';
+            document.getElementById('ncc').value='';
+            document.getElementById('slg').value=''; 
+            document.getElementById('gia').value='';
+            LoadHDN();
+            })
+           
+        }
+        nameNV();
+   </script>
+    <!-- Page Content -->
+    
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<title>Quản lý sản phẩm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../style/style.css">
+<link rel="stylesheet" href="../style/main_ index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+<script src="js/java_jqu.js"></script>
+<body>
+    <!-- Sidebar -->
+    <section class="header">
+        <a href="javascript:void(0);" class="icon" onclick="openBTN()">
+            <i class="fas fa-bars"></i>
+        </a>
+        <div class="box-login" id="box-t">
+            Xin chào,<span id="tenkhachhang">Admin</span><i class="fas fa-sort-down"></i>
+            <div class="box-login-bottom" id="box-b">
+                <button onclick="trangchu()"><i class="fas fas fas fa-reply"></i>Vào trang web</button>
+                <button onclick="TTTaiKhoan()"><i class="fas fa-user-alt"></i> Tài khoản</button>
+                <button onclick="LogOut();"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="row">
+            <div class="col-2 col-s-12 category">
+                <div class="bgbtn"></div>
+                <a href="../index.html"><i class="fa fa-reply" aria-hidden="true"></i>Trang quản trị</a>
+                <a href="../Quản trị/QLsanpham.html"><i class="fas fa-barcode"></i> Sản phẩm</a>
+                <a href="../Quản trị/QLLoaisanpham.html"><i class="fas fa-boxes"></i> Loại sản phẩm</a>
+                <a href="../Quản trị/QL nhacungcap.html"><i class="fas fa-truck"></i> Nhà cung cấp</a>
+                <a href="../Quản trị/QLNhanvien.html"><i class="fas fa-user"></i> Nhân viên</a>
+                <a href="../Quản trị/QLHoadonnhap.html"><i class="fas fa-file-import"></i> Hóa đơn nhập</a>
+                <a href="../Quản trị/QLHoadonban.html"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</a>
+        </div>
+        <div class="col-10 col-s-12 content">
+            <div class="col-12 col-s-12 content">
+                <div class="col-6 col-s-12">
+            <form action="">
+                <div class="wraps">Nhập thông tin sản phẩm</div>
+            <div class="wrap-field">
+                <label for="">Mã sản phẩm : </label>
+                <div class="col-12 col-s-12">
+                    <input type="text" name="" placeholder="Nhập mã sản phẩm..." id="Product_code" required>
+                </div>
+            </div>
+            <div class="wrap-field">
+                <label for=""> Mã loại sản phẩm : </label>
+               <div class="col-12 col-s-12">
+                <input type="text" name="" placeholder="Nhập mã loại sản phẩm..." id="type_code" required>
+               </div>
+            </div>
+            <div class="wrap-field">
+                <label for="">Tên sản phẩm : </label>
+               <div class=" col-12 col-s-12">
+                <input type="text" name="" placeholder="Nhập tên sản phẩm..." id="name"required>
+               </div>
+            </div>
+            
+            <div class="wrap-field">
+                <label for="">Ảnh đại diện : </label>
+                <div class="col-12 col-s-12">
+                   <input type="file" name="" id="image">
+                </div>
+            </div>
+            <div class="wrap-field">
+                <label for="">Giá Niêm Yết : </label>
+               <div class="col-12 col-s-12">
+                <input type="text" name="" placeholder="Nhập giá sản phẩm..." id="price"required>
+               </div>
+            </div>
+            <div class="wrap">
+                <input onclick="Addsanpham()" type="submit" value="Add">
+                <input onclick="resetall()" type="submit" value="Reset">
+                <input id="sua" type="submit"  value="Edit">
+            </div>
+            </form>
+       </div>
+   <div class=" col-6 col-s-12 float_right">
+    <div class="warps1">Danh sách sản phẩm</div>
+           <div class="search">
+                <input type="text" name="" id="myInput" placeholder="Search...">
+            </div>
+       <table cellspacing="0">
+           <tr style="background-color: rgb(13, 167, 46);height: 50px;">
+               <th>Mã sản phẩm</th>
+               <th>Mã loại</th>
+               <th>Tên sản phẩm</th>
+               <th>Ảnh đại diện</th>
+               <th>Giá sản phẩm</th>
+               <th>Tác vụ</th>
+           </tr>
+          <tbody id="myTable">
+          </tbody>
+       </table>
+   </div>
+   <script>
+        function Addsanpham()
+        {
+            var arr=document.getElementsByTagName('input');
+            var Product_code=arr[0].value;
+            var type_code=arr[1].value;
+            var name=arr[2].value;
+            var image = arr[3].files[0].name;
+            var price=arr[4].value;
+            if(Product_code.length>10||isNaN(Product_code))
+            {
+                        alert("Mã sản phẩm không hợp lệ.Mời nhập lại mã ! ");
+                        return;
+            }
+            if(type_code.length>10)
+            {
+                        alert("Mã loại không hợp lệ.Nhập lại mã loại !")
+            }
+            if(name.length>50) 
+            {
+                        alert("Tên sản phẩm không hợp lệ.Vui lòng nhập lại");
+                        return;
+            }
+            if(isNaN(price))
+            {
+                        alert("Mã xác nhận sai.Vui lòng nhập lại")
+                        return;
+            }
+            Listsp = JSON.parse(localStorage.getItem('QLsanphams'));
+            if (Listsp == null) Listsp = [];
+            var QLsanphams = {
+                'Product_code': Product_code,
+                'type_code': type_code,
+                'name': name,
+                'image': image,
+                'price': price
+            };
+            Listsp.push(QLsanphams);//thêm mới phần tử vào cuối mảng
+            localStorage.setItem('QLsanphams', JSON.stringify(Listsp))
+            alert("Thêm sản phẩm thành công !")
+            location.reload();
+        }
+        Listsp=JSON.parse(localStorage.getItem('QLsanpham'));
+        if(Listsp==null) Listsp=[]
+        var listss = JSON.parse(localStorage.getItem('QLsanphams'));
+        function Loaddata()
+        {
+            var str = "";
+            for (x of listss) {
+                str += `<tr>
+                        <td>`+ x.Product_code+ `</td>
+                        <td>`+ x.type_code + `</td>
+                        <td>`+ x.name + `</td>
+                        <td><img src='../image/`+ x.image + `' /></td>
+                        <td>`+ x.price + `</td>
+                        <td><i onclick="Edit(event)"class="fa fa-pencil-square-o" aria-hidden="true"></i> <i onclick="Xoa(`+ x.Product_code + `)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    </tr>
+                `;
+            }
+            document.getElementById("myTable").innerHTML = str;
+        }
+        function Xoa(Product_code) {
+            var index = listss.findIndex(x => x.Product_code == Product_code);
+            if (index >= 0) {
+                listss.splice(index, 1);
+            }
+            localStorage.setItem('QLsanphams', JSON.stringify(listss)); 
+            Loaddata();
+        }
+        Loaddata();
+        function resetall() {
+             document.getElementsByTagName('form')[0].reset()
+         }
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            });
+        })
+        function Edit(event) {
+            var parent = event.target.parentElement.parentElement.children[0]; 
+            console.log(parent.innerText);
+            var Listsp = JSON.parse(localStorage.getItem('QLsanphams'));
+            for(let i=0;i<Listsp.length;i++){
+                if(Listsp[i].Product_code==parent.innerText.trim()){
+                    
+            document.getElementById('Product_code').value=Listsp[i].Product_code;
+            document.getElementById('type_code').value=Listsp[i].type_code;
+            document.getElementById('name').value=Listsp[i].name;
+            document.getElementById('image').files.name=Listsp[i].image; 
+            document.getElementById('price').value=Listsp[i].price;
+            break;
+                }
+            }
+            document.getElementById('sua').addEventListener('click',e=>{
+                for(let i=0;i<Listsp.length;i++){
+                if(Listsp[i].Product_code==parent.innerText.trim()){
+                    Listsp[i].Product_code = document.getElementById('Product_code').value;
+                    Listsp[i].type_code= document.getElementById('type_code').value;
+                    Listsp[i].name=  document.getElementById('name').value;
+                    if(document.getElementById('image').files[0])
+                    Listsp[i].image = document.getElementById('image').files[0].name;
+                    Listsp[i].price= document.getElementById('price').value;
+                    localStorage.setItem('QLsanphams',JSON.stringify(Listsp));
+                     break;
+                }
+                
+            }
+            document.getElementById('Product_code').value='';
+            document.getElementById('type_code').value='';
+            document.getElementById('name').value='';
+            document.getElementById('image').value=''; 
+            document.getElementById('price').value='';
+            Loaddata();
+            })
+        }
+        nameNV();
+   </script>
+    <!-- Page Content -->
+    
+</body>
+</html>

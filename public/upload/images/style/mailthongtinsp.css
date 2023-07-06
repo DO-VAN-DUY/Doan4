@@ -1,0 +1,97 @@
+#warper
+{
+  max-width: 1300px;
+  margin:0px auto;
+  height: 250px;
+}
+.information button
+{
+  padding: 10px;;width: 150px;margin-top: 15px;background-color:#0a9bf0;color: #fff;
+  border-radius: 10px;cursor: pointer;
+  border: none;
+}
+.information,.commit
+{
+  margin-top: 30px;
+}
+
+.commit h3{
+  width: 50%;
+  padding: 10px 20px;
+  background-color: #00a2ff;
+  color: #fff;
+  border-radius: 6px;
+  margin-top: -20px;
+  margin-left: 10px;
+}
+.commit
+{
+  border: 1px solid #00a2ff;
+  border-radius: 10px;
+  padding: 5px;
+}
+#product_details
+{
+  max-width: 1300px;
+  margin: 30px auto;
+}
+.chitietsp h3,.splienquan h3
+{
+  color: red;
+  font-weight: bold;
+  border-bottom: 1px solid red; 
+  line-height: 2em;
+}
+p
+{
+  padding-top: 5px;
+  
+}
+.chitietsp p{
+  border-bottom: 1px solid;
+}
+#product_details span
+{
+  font-weight: bold;
+}
+#sp_img img
+{
+  max-width: 200px;
+  height: 200px;
+}
+#img_main
+{
+  width: 200px;
+  height: 200px;
+}
+
+#sp_img
+{
+  padding-left: 50px;
+}
+.imgbe img
+{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.imgbe img:hover
+{
+  opacity: 1;
+}
+.imgto
+{
+  height:70px;
+  overflow-x: auto;
+  margin: 0px auto;
+   overflow-y:hidden;
+  }
+  
+.imgtb {
+    width:350px;
+    height: 340px;
+   overflow: auto;}
+
+
+

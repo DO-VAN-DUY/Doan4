@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+                Thông tin sản phẩm-cửa hàng cây cảnh
+        </title>
+    </head>
+    <link rel="stylesheet" href="../style/main_btl_da.css">
+    <link rel="stylesheet" href="../style/mailthongtinsp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/main_da.js" ></script>
+  <script src="../js/java_jqu.js"></script>
+    <body>
+      <div class="first_part">
+        <div>
+          <a href="" id="logo">
+            <img src="../cay/logo1.png" >
+          </a> 
+        </div>
+        <div class="" id="search">
+          <input type="text" name="" placeholder="  Tìm kiếm sản phẩm">
+          <button id="Search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="basket_login">
+          <a href="login.html"  ><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;ĐĂNG NHẬP</a>
+          <a href="giohang.html" id="basket"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;GIỎ HÀNG : <span class="count" id="soluong">0</span></a>
+        </div>
+    </div>
+    <div id="header">
+      <div id="toggle">
+        <i class="fa fa-bars"></i>
+      </div>
+      <nav>
+        <ul id="main-menu">
+          <li><a href="../btl_da.html">TRANG CHỦ</a></li>
+          <li><a href="../web_gioithieu.html">GIỚI THIỆU</a></li>
+          <li id="sub"><a href="">
+            SẢN PHẨM <span id="togg"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></a>
+            <ul class="submenu" >
+              <li><a href="#">Chậu Cây Cảnh Mini,Đặt Bàn <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                <ul class="submenu1" >
+                  <li><a href="../senda/web_senda.html">Sen Đá</a></li>
+                  <li><a href="../camnhung/web_camnhung.html">Cẩm Nhung</a></li>
+                  <li><a href="../kimtien/web_kimtien.html">Kim Tiền</a></li>
+                  <li><a href="../Huongthao/web_huongthao.html">Hương Thảo</a></li>
+                  <li><a href="../Kimngan/web_kimngan.html">Kim Ngân</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Chậu Cây Cảnh Đặt Phòng Làm Việc <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                <ul class="submenu2" >
+                  <li><a href="../Hanhphuc/web_hanhphuc.html">Hạnh Phúc</a></li>
+                  <li><a href="../Kimngan/web_kimngan.html">Kim Ngân</a></li>
+                  <li><a href="../lanquantu/web_lanquantu.html">Lan Quân Tử</a></li>
+                  <li><a href="../lany/web_lany.html">Lan Ý</a></li>
+                  <li><a href="../toyen/web_toyen.html">Tổ Yến</a></li>
+                  <li><a href="../traubaxanh/web_traubaxanh.html">Trầu Bà Xanh</a></li>
+                  <li><a href="../luoiho/web_luoiho.html">Lưỡi Hổ</a></li>
+                  <li><a href="../thinhvuong/web_thinhvuong.html">Thịnh Vượng</a></li>
+                  <li><a href="../luoiho/web_luoiho.html">Tùng Bồng Lai</a></li>
+                </ul>
+               </li>
+            </ul>
+          </li>
+          <li><a href="../Chăm sóc cây/web_chăm sóc cây.html">TƯ VẤN CHĂM SÓC CÂY</a></li>
+          <li><a href="../Liên hệ.html">LIÊN HỆ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <section>
+      <div class="silde">
+          <img  src="../Chăm sóc cây/unnamed.jpg">
+          <div class="silde-br">
+              <b>CÂY CẢNH VĂN PHÒNG</b>
+          </div>
+      </div>
+    </section>
+    <section>
+      <div id="warper">
+            <div class="col-8 col-s-12 contents">
+              <div class="col-4 col-s-12 contents_img">
+                <img src="../Hanhphuc/anh2.jpg" alt=""id="img_main">
+                <div class="imgto">
+                  <div class="imgtb">
+                    <div class="imgbe">
+                      <img src="../Hanhphuc/anh19.jpg" alt=""onclick="changeImage('one')" id="one">
+                      <img src="../Hanhphuc/anh18.jpg" alt="" onclick="changeImage('two')" id="two">
+                      <img src="../Hanhphuc/anh17.jpg" alt="" onclick="changeImage('three')" id="three">
+                      <img src="../Hanhphuc/anh14.jpg" alt="" onclick="changeImage('four')" id="four">
+                      <img src="../Hanhphuc/anh15.jpg" alt="" onclick="changeImage('five')" id="five">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-8 col-s-12 information"> 
+                <h3>CÂY HẠNH PHÚC</h3>
+                <p><span>Cây Hạnh Phúc</span> mang ý nghĩa cầu chúc mọi điềm lành trong cuộc sống, phù hợp trong nhà, văn phòng,
+                  bàn làm việc hoặc trên giá, trên kệ, làm quà tặng.</p>
+                <p>
+                          * Ảnh 1: Chậu sứ tròn, trắng, vân caro; 100.000đ
+                  </p>
+                  <p>Lưu ý: Giá sản phẩm đã bao gồm chậu.</p>
+                  <p>Giá bán :<span>100.000đ</span></p>
+                  <button onclick="addToCart({id:'01',image:'cay/cay1.jpg', price:100000, name:'CÂY HẠNH PHÚC'})">THÊM VÀO GIỎ</button>
+              </div>
+            </div> 
+            <div class="col-4 col-s-12 commit">
+                  <h3>CỬA HÀNG CAM KẾT:</h3>
+                  <p>- Cung cấp các loại cây cảnh đa dạng với giá hợp lý.</p>
+                  <p>- Miễn phí giao hàng cho đơn hàng trên <span>500.000đ</span> (áp dụng tại các quận nội thành Hà Nội).</p>
+                  <p>- Tư vấn và hướng dẫn chăm sóc cây tận tình.</p>
+                  <p>- Tư vấn kỹ lưỡng các vấn đề phong thuỷ, hợp mệnh - hợp tuổi.</p>
+                  <p>- Hỗ trợ đổi trả sản phẩm trong vòng <span>3 ngày</span> sau khi mua.</p>
+            </div>
+      </div>
+    </section>
+      <section id="product_details">
+          <div class="chitietsp">
+            <h3>CHI TIẾT SẢN PHẨM</h3>
+            <p><span>Giới Thiệu Cây Hạnh Phúc</span></p>
+                  <p>* Tên khoa học: Alpinia purpurata (Vieill.) K. Schum.</p>
+                  <p>* Xuất xứ: Nam Âu và Tây Á</p>
+                  <p><span>Đặc Điểm</span></p>
+                  <p>* Cây thân gỗ có thể cao đến 3m</p>
+                  <p>* Cây mọc 3 lá 1 tạo thành một cành nhỏ có hình trái tim</p>
+                  <p>* Hoa có màu trắng kem tinh khôi</p>
+                  <p><span>Công Dụng</span></p>
+                  <p>* Trang trí nội thất, sảnh công ty, khách sạn, nhà hàng</p>
+                  <p>* Thanh lọc không khí, đặc biệt có khả năng hút bụi, hút các khí độc hại thải ra từ các thiết bị điện tử</p>
+                  <p><span>Cách Chăm Sóc Cây</span></p>
+                  <p>* Chế độ nước: vào mùa hè cần tưới nước 1 ngày 1 lần, vào mùa đông, mùa mưa ẩm cần giảm bớt lượng nước</p>
+                  <p>* Đất trồng: tơi xốp màu mỡ nên ta phải trộn đất với nhiều nguyên liệu khác như xơ dừa, chấu, đất thịt, các loại phân tổng hợp…</p>
+                  <p><span>Những lưu ý khi chăm sóc</span></p>
+                  <p>* Cần phải cắt tỉa, loại bỏ những lá vàng úa, héo, sâu bệnh và vệ sinh chậu cảnh thường xuyên hơn, không tưới nước bẩn cho cây, như vậy mới đảm bảo cây xanh của chúng ta luôn bền bỉ.</p>
+                  <p>* Không đổ bã chè, bã café vào chậu cây, luôn giữa mặt chậu cây thoáng, mỗi tháng một lần nên mang chậu cây ra ngoài trời một tuần</p>
+                  <p>* Không đặt chậu cây trực tiếp dưới ánh nắng mặt trời.</p>
+                  <p>* Khi cây xuất hiện các lá vàng, lá úa, lá héo thì phải cắt bỏ đi ngay.</p>
+                  <p>* Cây bị rụng lá hoặc các nhánh cây có hiện tượng mềm, rục là lúc bạn cần chăm sóc đặc biệt hoặc thay thế cây mới.</p>
+          </div>
+          <div class="splienquan">
+          <h3>SẢN PHẨM LIÊN QUAN</h3>
+          </div>
+            <div id="sp_img">
+              <div class="anhtt">
+                <img src="../cay/cay3.jpg" alt=""><a href=""></a></img>
+                <p>CÂY HƯƠNG THẢO<br/><span>Giá:110.000 VNĐ</span></p>
+                <button  onclick="addToCart({id:'01',image:'cay/cay3.jpg', price:110000, name:'CÂY HƯƠNG THẢO'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                <img src="../cay/cay4.jpg" alt=""><a href=""></a></img>
+                <p>CÂY LAN QUÂN TỬ<br/><span>Giá:90.000 VNĐ</span></p>
+                <button  onclick="addToCart({id:'02',image:'cay/cay4.jpg', price:90000, name:'CÂY LAN QUÂN TỬ'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                <img src="../cay/cây5.jpg" alt=""><a href=""></a></img>
+                <p>CÂY LAN Ý<br/><span>Giá:85.000 VNĐ</span></p>
+                <button  onclick="addToCart({id:'03',image:'cay/cây5.jpg', price:85000, name:'CÂY LAN Ý'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                <img src="../cay/cay6.jpg" alt=""><a href=""></a></img>
+                <p><span>CÂY TỔ YẾN</span><br/>Giá:85.000 VNĐ</p>
+                <button  onclick="addToCart({id:'04',image:'cay/cay6.jpg', price:85000, name:'CÂY TỔ YẾN'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                <img src="../cay/cay7.jpg" alt=""><a href=""></a></img>
+                <p><span>CÂY THỊNH VƯỢNG</span><br/>Giá:105.000 VNĐ</p>
+                <button  onclick="addToCart({id:'05',image:'cay/cay7.jpg', price:105000, name:'CÂY THỊNH VƯỢNG'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                  <img src="../cay/cay8.jpg" alt=""><a href=""></a></img>
+                  <p><span>CÂY TRẦU BÀ XANH</span><br/>Giá:100.000 VNĐ</p>
+                  <button  onclick="addToCart({id:'06',image:'cay/cay8.jpg', price:100000, name:'CÂY TRẦU BÀ XANH'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                <img src="../cay/cay9.jpg" alt=""><a href=""></a></img>
+                <p><span>CÂY TRÚC PHÁT LỘC</span><br/>Giá:65.000 VNĐ</p>
+                <button  onclick="addToCart({id:'07',image:'cay/cay9.jpg', price:65000, name:'CÂY TRÚC PHÁT LỘC'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                <img src="../cay/cay10.jpg" alt=""><a href=""></a></img>
+                <p><span>CÂY TÙNG BỒNG LAI</span><br/>Giá:150.000 VNĐ</p>
+                <button  onclick="addToCart({id:'08',image:'cay/cay10.jpg', price:150000, name:'CÂY TÙNG BỒNG LAI'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                <img src="../cay/cay11.jpg" alt=""><a href=""></a></img>
+                <p><span>CÂY CẨM NHUNG</span><br/>Giá:120.000 VNĐ</p>
+                <button  onclick="addToCart({id:'09',image:'cay/cay11.jpg', price:120000, name:'CÂY CẨM NHUNG'})">THÊM VÀO GIỎ</button>
+                </div>
+                <div class="anhtt">
+                <img src="../cay/cay12.jpg" alt=""><a href=""></a></img>
+                <p><span>CÂY KIM TIỀN</span><br/>Giá:125.000 VNĐ</p>
+                <button  onclick="addToCart({id:'10',image:'cay/cay12.jpg', price:125000, name:'CÂY KIM TIỀN'})">THÊM VÀO GIỎ</button>
+                </div>
+            </div>
+      </section>
+      <section class="footent">
+        <div class="col-3 col-s-6">
+            <ul>
+                <li><b>THÔNG TIN CHUNG</b></li>
+                <hr>
+                <li><a href="#">Giới thiệu về cửa hàng</a></li>
+                <li><a href="web_gioithieu.html">Thông tin liên hệ</a></li>
+                <li><a href="#">Thông tin tuyển dụng</a></li>
+                <li><a href="">Tin tức</a></li>
+            </ul>
+        </div>
+        <div class="col-3 col-s-6">
+            <ul>
+                <li><b>CHÍNH SÁCH MUA HÀNG</b></li>
+                <hr>
+      
+                <li><a href="#">Chính sách đổi trả hàng</a></li>
+                <li><a href="#">Phương thức thanh toán</a></li>
+                <li><a href="#">Phương thức hoàn tiền</a></li>
+                <li><a href="#">Phương thức vận chuyển</a></li>
+            </ul>
+        </div>
+        <div class="col-3 col-s-6">
+            <ul>
+                <li><b>HỖ TRỢ KHÁCH HÀNG</b></li>
+                <hr>
+                <li><a href="#">Hướng dẫn mua hàng online</a></li>
+                <li><a href="#">Thông tin khuyến mại</a></li>
+                <li><a href="#">Gửi yêu cầu bảo hành</a></li>
+                <li><a href="#">Góp ý, khiếu nại</a></li>
+            </ul>
+          </div>
+          <div class="col-3 col-s-6">
+             <ul>
+                <li><b>CỬA HÀNG SAMBEE GARDEN</b></li>
+                <hr>
+                <li><a href="https://www.facebook.com/CayCanhNamDoComplex" target="_blank"><i
+                            class="fab fa-facebook-square" style="color: blue;"></i>Cây Cảnh Nam Đô - Sambee Garden</a></li>
+                <li><a href="https://www.youtube.com/c/ChiếnNguyễn" target="_blank"><i class="fab fa-youtube"
+                            style="color: red;"></i>  Sambee Garden</a></li>
+                <li><a href="https://www.facebook.com/messages/t/1515186728751440" target="_blank"><i
+                            class="fab fa-facebook-messenger" style="color: white;"></i> Chat với tư vấn
+                        viên</a></li>
+                <li><a href="https://goo.gl/maps/xbtQDEA3cmrggSNt5" target="_blank"><i
+                            class="fas fa-map-marked-alt" style="color: white;"></i> Vị trí cửa hàng</a>
+                </li>
+             </ul>
+           </div>
+      </section>
+      <script>
+        LoadSLH();
+        LoadTaiKhoan();
+      </script>
+    </body>
+</html>
+      
